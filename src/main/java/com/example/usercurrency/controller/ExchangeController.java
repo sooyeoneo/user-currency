@@ -5,6 +5,7 @@ import com.example.usercurrency.dto.ExchangeResDto;
 import com.example.usercurrency.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,5 +39,12 @@ public class ExchangeController {
     @PathVariable("/{id}/status")
     public ResponseEntity<ExchangeResDto> updateExchangeStatus(@PathVariable Long id, @RequestParam String status) {
         return ResponseEntity.ok().body(exchangeService.updateExchangeStatus(id, status));
+    }
+
+    // 특정 환전 요청 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteExchange(@PathVariable Long id) {
+        exchangeService.deleteExchangeById(id);
+        return ResponseEntity.ok().body("환전 요청이 삭제되었습니다.");
     }
 }

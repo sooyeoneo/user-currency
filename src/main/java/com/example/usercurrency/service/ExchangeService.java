@@ -66,4 +66,12 @@ public class ExchangeService {
 
         return new ExchangeResDto(exchange);
     }
+
+    // 특정 환전 요청 삭제
+    public void deleteExchangeById(Long id) {
+        if (!exchangeRepository.exitstById(id)) {
+            throw new IllegalArgumentException("존재하지 않는 환전 요청입니다.");
+        }
+        exchangeRepository.deleteById(id);
+    }
 }
