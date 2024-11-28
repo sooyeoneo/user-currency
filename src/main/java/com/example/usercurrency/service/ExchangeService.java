@@ -51,4 +51,19 @@ public class ExchangeService {
                 .map(ExchangeResDto::new)
                 .toList();
     }
+
+    // 환전 요청 상태 변경
+    public ExchangeResDto updateExchangeStatus(Long id, String status) {
+        Exchange exchange = exchangeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 환전 요청입니다."));
+
+        if (!"normal".equals(exchange.getStatus()) && !"cancelled".equals(status)) {
+            throw new IllegalArgumentException("잘못된 상태 값입니다.");
+        }
+
+        exchange.setStatus(status);
+        exchangeRepository.save(exchange);
+
+        return new ExchangeResDto(exchange);
+    }
 }
