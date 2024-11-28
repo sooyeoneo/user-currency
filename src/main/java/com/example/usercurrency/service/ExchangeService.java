@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -41,5 +42,13 @@ public class ExchangeService {
         exchangeRepository.save(exchange);
 
         return new ExchangeResDto(exchange);
+    }
+
+    // 특정 고객의 환전 요청 조회
+    public List<ExchangeResDto> findExchangesByUser(Long userId) {
+        List<Exchange> exchanges = exchangeRepository.findByUserId(userId);
+        return exchanges.stream()
+                .map(ExchangeResDto::new)
+                .toList();
     }
 }

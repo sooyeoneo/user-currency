@@ -29,6 +29,7 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
+    // 영속성 전이 (cascade) User가 삭제되었을 때 해당 사용자의 모든 Exchange 삭제
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private final List<Exchange> exchanges = new ArrayList<>();
 
