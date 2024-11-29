@@ -3,6 +3,7 @@ package com.example.usercurrency.controller;
 import com.example.usercurrency.dto.UserReqDto;
 import com.example.usercurrency.dto.UserResDto;
 import com.example.usercurrency.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +23,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping
+    public ResponseEntity<UserResDto> createUser(@RequestBody @Valid UserReqDto userReqDto) {
+        return ResponseEntity.ok().body(userService.save(userReqDto));
+    }
+
     @GetMapping
     public ResponseEntity<List<UserResDto>> findUsers() {
         return ResponseEntity.ok().body(userService.findAll());
@@ -30,11 +36,6 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserResDto> findUser(@PathVariable Long id) {
         return ResponseEntity.ok().body(userService.findById(id));
-    }
-
-    @PostMapping
-    public ResponseEntity<UserResDto> createUser(@RequestBody UserReqDto userReqDto) {
-        return ResponseEntity.ok().body(userService.save(userReqDto));
     }
 
     @DeleteMapping("/{id}")

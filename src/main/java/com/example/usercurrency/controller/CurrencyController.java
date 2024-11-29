@@ -21,18 +21,18 @@ public class CurrencyController {
 
     private final CurrencyService currencyService;
 
+    @PostMapping
+    public ResponseEntity<CurrencyResDto> createCurrency(@RequestBody CurrencyReqDto currencyReqDto) {
+        return ResponseEntity.ok().body(currencyService.save(currencyReqDto));
+    }
+
     @GetMapping
-    public ResponseEntity<List<CurrencyResDto>> findeCurrencies() {
+    public ResponseEntity<List<CurrencyResDto>> findCurrencies() {
         return ResponseEntity.ok().body(currencyService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<CurrencyResDto> findCurrency(@PathVariable Long id) {
         return ResponseEntity.ok().body(currencyService.findById(id));
-    }
-
-    @PostMapping
-    public ResponseEntity<CurrencyResDto> createCurrency(@RequestBody CurrencyReqDto currencyReqDto) {
-        return ResponseEntity.ok().body(currencyService.save(currencyReqDto));
     }
 }
