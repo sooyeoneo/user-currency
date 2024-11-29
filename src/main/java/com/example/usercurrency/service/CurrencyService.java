@@ -16,6 +16,15 @@ public class CurrencyService {
 
     private final CurrencyRepository currencyRepository;
 
+    @Transactional
+    public CurrencyResDto save(CurrencyReqDto currencyReqDto) {
+        if (currencyReqDto.getCurrencyRate() == null || currencyReqDto.getCurrencyName() == null) {
+            throw new IllegalArgumentException("환율 또는 통화를 입력해주세요.");
+        }
+        Currency savedCurrency = currencyRepository.save(currencyReqDto.toEntity());
+        return new CurrencyResDto(savedCurrency);
+    }
+
     public CurrencyResDto findById(Long id) {
         return new CurrencyResDto(findCurrencyById(id));
     }
@@ -26,11 +35,5 @@ public class CurrencyService {
 
     public List<CurrencyResDto> findAll() {
         return currencyRepository.findAll().stream().map(CurrencyResDto::toDto).toList();
-    }
-
-    @Transactional
-    public CurrencyResDto save(CurrencyReqDto currencyReqDto) {
-        Currency saveCurrency = currencyRepository.save(currencyReqDto.toEntity());
-        return new CurrencyResDto(saveCurrency);
     }
 }

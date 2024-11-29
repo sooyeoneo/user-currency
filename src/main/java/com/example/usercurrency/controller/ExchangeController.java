@@ -31,7 +31,7 @@ public class ExchangeController {
     }
 
     // 특정 고객의 환전 요청 조회
-    @GetMapping("/user/{userId}")
+    @GetMapping("/users/{userId}")
     public ResponseEntity<List<ExchangeResDto>> findExchangeByUser(@PathVariable Long userId) {
         return ResponseEntity.ok().body(exchangeService.findExchangesByUser(userId));
     }

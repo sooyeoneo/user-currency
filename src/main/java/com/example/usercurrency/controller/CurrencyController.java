@@ -3,6 +3,7 @@ package com.example.usercurrency.controller;
 import com.example.usercurrency.dto.CurrencyReqDto;
 import com.example.usercurrency.dto.CurrencyResDto;
 import com.example.usercurrency.service.CurrencyService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class CurrencyController {
     private final CurrencyService currencyService;
 
     @PostMapping
-    public ResponseEntity<CurrencyResDto> createCurrency(@RequestBody CurrencyReqDto currencyReqDto) {
+    public ResponseEntity<CurrencyResDto> createCurrency(@RequestBody @Valid CurrencyReqDto currencyReqDto) {
         return ResponseEntity.ok().body(currencyService.save(currencyReqDto));
     }
 

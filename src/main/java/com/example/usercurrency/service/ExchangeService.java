@@ -39,7 +39,8 @@ public class ExchangeService {
 
         // exchangeReqDto.getAmountInKrw() 반환 타입 int -> BigDecimal 변환
         BigDecimal amountInKrw = BigDecimal.valueOf(exchangeReqDto.getAmountInKrw());
-        BigDecimal amountAfterExchange = amountInKrw.divide(currency.getExchangeRate(), 2, RoundingMode.HALF_UP);
+        BigDecimal amountAfterExchange = amountInKrw
+                .divide(currency.getExchangeRate(), 2, RoundingMode.HALF_UP);
 
         Exchange exchange = new Exchange(user, currency, exchangeReqDto.getAmountInKrw(), amountAfterExchange, "normal");
         exchangeRepository.save(exchange);
