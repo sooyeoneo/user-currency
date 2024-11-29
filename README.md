@@ -6,7 +6,8 @@
 ### Lv 0. API 명세 작성   `필수`
  - [X]  **API 명세서 작성하기**
     - [X]  API명세서는 프로젝트 com.example.usercurrency 경로의 `test.http` 에 작성 
-
+    
+     [POSTMAN](https://documenter.getpostman.com/view/39375040/2sAYBXBrBX)
 
 ------------
 
