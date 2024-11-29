@@ -25,20 +25,16 @@ public class ExchangeService {
 
     // 환전 요청 생성
     public ExchangeResDto createExchange(ExchangeReqDto exchangeReqDto) {
+
         User user = userRepository.findById(exchangeReqDto.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다."));
         Currency currency = currencyRepository.findById(exchangeReqDto.getCurrencyId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 통화입니다."));
+
         BigDecimal amountAfterExchange = exchangeReqDto.getAmountInKrw()
                 .divide(currency.getExchangeRate(), 2, RoundingMode.HALF_UP);
 
-        Exchange exchange = new Exchange();
-        exchange.setUser(user);
-        exchange.setCurrency(currency);
-        exchange.setAmountInKrw(exchangeReqDto.getAmountInKrw());
-        exchange.setAmountAfterExchange(amountAfterExchange);
-        exchange.setStatus("normal");
-
+        Exchange exchange = new Exchange(user, currency, exchangeReqDto.getAmountInKrw(), amountAfterExchange, "normal");
         exchangeRepository.save(exchange);
 
         return new ExchangeResDto(exchange);
@@ -46,8 +42,8 @@ public class ExchangeService {
 
     // 특정 고객의 환전 요청 조회
     public List<ExchangeResDto> findExchangesByUser(Long userId) {
-        List<Exchange> exchanges = exchangeRepository.findByUserId(userId);
-        return exchanges.stream()
+        return exchangeRepository.findByUserId(userId)
+                .stream()
                 .map(ExchangeResDto::new)
                 .toList();
     }
@@ -57,7 +53,7 @@ public class ExchangeService {
         Exchange exchange = exchangeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 환전 요청입니다."));
 
-        if (!"normal".equals(exchange.getStatus()) && !"cancelled".equals(status)) {
+        if (!"normal".equals(status) && !"cancelled".equals(status)) {
             throw new IllegalArgumentException("잘못된 상태 값입니다.");
         }
 
@@ -69,7 +65,7 @@ public class ExchangeService {
 
     // 특정 환전 요청 삭제
     public void deleteExchangeById(Long id) {
-        if (!exchangeRepository.exitstById(id)) {
+        if (!exchangeRepository.existsById(id)) {
             throw new IllegalArgumentException("존재하지 않는 환전 요청입니다.");
         }
         exchangeRepository.deleteById(id);

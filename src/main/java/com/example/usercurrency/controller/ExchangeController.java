@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,7 +37,7 @@ public class ExchangeController {
     }
 
     // 특정 환전 요청 상태 변경 (normal -> cancelled)
-    @PathVariable("/{id}/status")
+    @PatchMapping("/{id}/status")
     public ResponseEntity<ExchangeResDto> updateExchangeStatus(@PathVariable Long id, @RequestParam String status) {
         return ResponseEntity.ok().body(exchangeService.updateExchangeStatus(id, status));
     }

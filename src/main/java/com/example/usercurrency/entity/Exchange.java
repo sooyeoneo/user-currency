@@ -35,11 +35,19 @@ public class Exchange extends BaseEntity {
     @Column(nullable = false)
     private int amountInKrw = 0;
 
-    @Column(nullable = false)
+    @Column(nullable = false, scale = 2)
     private BigDecimal amountAfterExchange = BigDecimal.valueOf(0.0);
 
     @Column(nullable = false)
     private String status;
+
+    public Exchange(User user, Currency currency, int amountInKrw, BigDecimal amountAfterExchange, String status) {
+        this.user = user;
+        this.currency = currency;
+        this.amountInKrw = amountInKrw;
+        this.amountAfterExchange = amountAfterExchange;
+        this.status = status;
+    }
 
     public Exchange() {}
 }
