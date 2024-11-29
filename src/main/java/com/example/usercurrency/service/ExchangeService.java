@@ -31,8 +31,15 @@ public class ExchangeService {
         Currency currency = currencyRepository.findById(exchangeReqDto.getCurrencyId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 통화입니다."));
 
-        BigDecimal amountAfterExchange = exchangeReqDto.getAmountInKrw()
-                .divide(currency.getExchangeRate(), 2, RoundingMode.HALF_UP);
+        // currency.getExchangeRate() null 반환 예외 처리
+        BigDecimal exchangeRate = currency.getExchangeRate();
+        if (exchangeRate == null || exchangeRate.compareTo(BigDecimal.ZERO) == 0) {
+            throw new IllegalArgumentException("유효하지 않은 환율 입니다.");
+        }
+
+        // exchangeReqDto.getAmountInKrw() 반환 타입 int -> BigDecimal 변환
+        BigDecimal amountInKrw = BigDecimal.valueOf(exchangeReqDto.getAmountInKrw());
+        BigDecimal amountAfterExchange = amountInKrw.divide(currency.getExchangeRate(), 2, RoundingMode.HALF_UP);
 
         Exchange exchange = new Exchange(user, currency, exchangeReqDto.getAmountInKrw(), amountAfterExchange, "normal");
         exchangeRepository.save(exchange);
