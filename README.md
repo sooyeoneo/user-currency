@@ -149,4 +149,4 @@
 
 ------------
 ## 트러블 슈팅 🎯
-[고객 환전 서비스_트러블 슈팅.TIL](https://sooyeoneo.tistory.com)
+[고객 환전 서비스_트러블 슈팅.TIL](https://sooyeoneo.tistory.com/80)
