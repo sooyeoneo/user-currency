@@ -7,90 +7,6 @@
  - [X]  **API 명세서 작성하기**
     - [X]  API명세서는 프로젝트 com.example.usercurrency 경로의 `test.http` 에 작성 
 
-<details>
-  <summary>  고객 생성 </summary> 
-  
-  <img width="333" alt="고객 생성 2024-11-29 오후 2 53 10" src="https://github.com/user-attachments/assets/8d52c060-34bd-42bd-a529-72b64f17375e">
-
-  </details> 
-
-<details>
-  <summary>  고객 전체 조회 </summary> 
-
-  <img width="333" alt="고객 전체 조회 2024-11-29 오후 2 53 25" src="https://github.com/user-attachments/assets/ea296fb0-274a-4599-a7de-8ee07f0ab9c3">
-
-  </details> 
-
-<details>
-  <summary>  선택 고객 조회 </summary> 
-  
-  <img width="333" alt="선택 고객 조회 2024-11-29 오후 2 53 32" src="https://github.com/user-attachments/assets/7c9ef4a6-8ad7-4a2a-87fb-755d5d12686d">
-
-  </details> 
-
-<details>
-  <summary>  선택 고객 삭제 </summary> 
-  
-  <img width="333" alt="선택 고객 삭제 2024-11-29 오후 2 53 39" src="https://github.com/user-attachments/assets/a382178e-6eea-42b5-86e3-e8d1d5b41661">
-
-  </details> 
-
-<details>
-  <summary>  통화 생성 </summary> 
-  
-  <img width="333" alt="통화 생성 2024-11-29 오후 2 53 47" src="https://github.com/user-attachments/assets/5433a97b-0201-4bd3-9395-b403627b363f">
-
-   <details>
-
-<details> 
-  <summary>  통화 전체 조회 </summary> 
-  
-  <img width="333" alt="통화 전체 조회 2024-11-29 오후 2 53 56" src="https://github.com/user-attachments/assets/6d50c150-f9fa-4746-b031-e80532a25530">
-  
-  </details> 
-
-<details>
-  <summary>  선택 통화 조회 </summary> 
-
-  <img width="333" alt="선택 통화 조회 2024-11-29 오후 2 54 03" src="https://github.com/user-attachments/assets/e8e07a32-89fa-4af2-b3e1-e598c159110e">
-
-  </details> 
-
-<details>
-  <summary>  환전 요청 생성 </summary> 
-
-  <img width="333" alt="환전 요청 생성 2024-11-29 오후 2 54 10" src="https://github.com/user-attachments/assets/6cbbc700-4a88-45f8-87c9-ade864a8e92d">
-
-  </details> 
-
-<details>
-  <summary>  고객의 환전 요청 조회 </summary> 
-
-  <img width="408" alt="고객의 환전 요청 조회 2024-11-29 오후 2 54 26" src="https://github.com/user-attachments/assets/3d3d3230-b7c4-40c3-b2f6-8ef9d9894465">
-
-  </details> 
-
-<details>
-  <summary>  고객별 환전 요청 그룹화 데이터 조회 </summary> 
-
-  <img width="410" alt="고객별 환전 요청 그룹화 데이터 조회 2024-11-29 오후 2 54 34" src="https://github.com/user-attachments/assets/6d35f2b0-2a55-4951-9782-7cbb4f39d1f9">
-
-  </details> 
-
-<details>
-  <summary>  고객의 환전 요청 상태 변경 </summary> 
-
-  <img width="520" alt="고객의 환전 요청 상태 변경 2024-11-29 오후 2 54 40" src="https://github.com/user-attachments/assets/bfc0e8ef-25e8-4a32-ad6b-135ba660558f">
-
-  </details> 
-
-<details>
-  <summary>  고객의 환전 요청 삭제 </summary> 
-
-  <img width="364" alt="고객의 환전 요청 삭제 2024-11-29 오후 2 54 48" src="https://github.com/user-attachments/assets/9141da8f-cd19-4b47-8f3a-803465444b92">
-
-  </details> 
-
 
 ------------
 
@@ -200,7 +116,7 @@
         - [X]  네트워크 요청에 실패했습니다. 다시 시도해주시기 바랍니다.
         - [X]  코드 형태를 고민해봐도 좋겠습니다.
 
-### Lv 4. PostConstruct 적용  `도전`
+### Lv 4. PostConstruct 적용  `도전`
 
 - [X]  조건
     - [X]  스프링이 구동될 때 통화 테이블에 있는 환율이 0이거나 음수이거나 지정된 범위를 벗어나는 경우
@@ -208,7 +124,7 @@
 - [X]  키워드
     - [X]  `@Component`, `@Slf4j`
     
-### Lv 5. JPQL  `도전`
+### Lv 5. JPQL `도전`
 
 - [X]  고객의 모든 환전 요청을 그룹화하여 조회
 - [X]  반환해야하는 컬럼
