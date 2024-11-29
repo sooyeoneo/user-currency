@@ -38,6 +38,7 @@ public class Exchange extends BaseEntity {
     @Column(nullable = false, scale = 2)
     private BigDecimal amountAfterExchange = BigDecimal.valueOf(0.0);
 
+    @Setter
     @Column(nullable = false)
     private String status;
 
