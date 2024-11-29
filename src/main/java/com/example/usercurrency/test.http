@@ -1,0 +1,50 @@
+POST localhost:8080/users
+Content-Type: application/json
+
+{
+  "email" : "abcd@naver.com",
+  "name" : "김민지"
+}
+### 고객 전체 조회
+GET localhost:8080/users
+
+###
+GET localhost:8080/users/1
+
+###
+DELETE localhost:8080/users/1
+
+###
+POST localhost:8080/currencies
+Content-Type: application/json
+
+{
+  "currencyRate" : 1430.00,
+  "currencyName" : "USD",
+  "symbol" : "$"
+}
+
+###
+GET localhost:8080/currencies
+
+###
+GET localhost:8080/currencies/1
+
+###
+POST localhost:8080/exchanges
+Content-Type: application/json
+
+{
+    "userId" : "2",
+    "currencyId" : "1",
+    "amountInKrw" : 10000
+}
+
+###
+GET localhost:8080/exchanges/users/1
+
+###
+PATCH localhost:8080/exchanges/1/status?status=normal
+
+###
+DELETE localhost:8080/exchanges/1
