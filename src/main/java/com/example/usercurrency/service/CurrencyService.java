@@ -21,7 +21,7 @@ public class CurrencyService {
     }
 
     public Currency findCurrencyById(Long id) {
-        return CurrencyRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 통화 입니다."));
+        return currencyRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 통화 입니다."));
     }
 
     public List<CurrencyResDto> findAll() {
