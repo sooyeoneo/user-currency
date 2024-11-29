@@ -2,6 +2,7 @@ package com.example.usercurrency.controller;
 
 import com.example.usercurrency.dto.ExchangeReqDto;
 import com.example.usercurrency.dto.ExchangeResDto;
+import com.example.usercurrency.dto.UserExchangeDto;
 import com.example.usercurrency.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,12 @@ public class ExchangeController {
     @GetMapping("/users/{userId}")
     public ResponseEntity<List<ExchangeResDto>> findExchangeByUser(@PathVariable Long userId) {
         return ResponseEntity.ok().body(exchangeService.findExchangesByUser(userId));
+    }
+
+    // 고객별 환전 요청 그룹화 데이터 조회
+    @GetMapping("/summary")
+    public ResponseEntity<List<UserExchangeDto>> getExchangeSummaryByUser() {
+        return ResponseEntity.ok().body(exchangeService.getExchangeSummaryByUser());
     }
 
     // 특정 환전 요청 상태 변경 (normal -> cancelled)

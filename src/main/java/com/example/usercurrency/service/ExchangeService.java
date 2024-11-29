@@ -2,6 +2,7 @@ package com.example.usercurrency.service;
 
 import com.example.usercurrency.dto.ExchangeReqDto;
 import com.example.usercurrency.dto.ExchangeResDto;
+import com.example.usercurrency.dto.UserExchangeDto;
 import com.example.usercurrency.entity.Currency;
 import com.example.usercurrency.entity.Exchange;
 import com.example.usercurrency.entity.User;
@@ -54,6 +55,11 @@ public class ExchangeService {
                 .stream()
                 .map(ExchangeResDto::new)
                 .toList();
+    }
+
+    // 고객별 환전 요청 그룹화 데이터 조회
+    public List<UserExchangeDto> getExchangeSummaryByUser() {
+        return exchangeRepository.findGroupedExchangeSummary();
     }
 
     // 환전 요청 상태 변경
