@@ -19,9 +19,5 @@ public interface ExchangeRepository extends JpaRepository<Exchange, Long> {
             "FROM Exchange e " +
             "GROUP BY e.user.id ")
 
-    //@Query("SELECT new com.example.dto.UserExchangeSummaryDto(e.user.id, COUNT(e), SUM(e.amountInKrw)) " +
-    //           "FROM Exchange e " +
-    //           "GROUP BY e.user.id")
-
     List<UserExchangeDto> findGroupedExchangeSummary();
 }

@@ -20,11 +20,14 @@ public class Currency extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private BigDecimal exchangeRate;
+
+    @Column(nullable = false)
     private String currencyName;
+
+    @Column(nullable = false)
     private String symbol;
-
-
 
     public Currency(BigDecimal exchangeRate, String currencyName, String symbol) {
         this.exchangeRate = exchangeRate;
