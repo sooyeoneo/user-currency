@@ -23,7 +23,7 @@ public class CurrencyController {
     private final CurrencyService currencyService;
 
     @PostMapping
-    public ResponseEntity<CurrencyResDto> createCurrency(@RequestBody @Valid CurrencyReqDto currencyReqDto) {
+    public ResponseEntity<CurrencyResDto> createCurrency(@RequestBody @Valid CurrencyReqDto currencyReqDto) { // 유효성 검사 @Valid
         return ResponseEntity.ok().body(currencyService.save(currencyReqDto));
     }
 

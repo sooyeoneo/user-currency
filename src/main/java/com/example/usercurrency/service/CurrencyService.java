@@ -18,9 +18,6 @@ public class CurrencyService {
 
     @Transactional
     public CurrencyResDto save(CurrencyReqDto currencyReqDto) {
-        if (currencyReqDto.getCurrencyRate() == null || currencyReqDto.getCurrencyName() == null) {
-            throw new IllegalArgumentException("환율 또는 통화를 입력해주세요.");
-        }
         Currency savedCurrency = currencyRepository.save(currencyReqDto.toEntity());
         return new CurrencyResDto(savedCurrency);
     }
