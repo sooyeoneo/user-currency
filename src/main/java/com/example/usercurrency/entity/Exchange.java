@@ -38,7 +38,6 @@ public class Exchange extends BaseEntity {
     @Column(nullable = false, scale = 2)
     private BigDecimal amountAfterExchange = BigDecimal.valueOf(0.0);
 
-    @Setter
     @Column(nullable = false)
     private String status;
 
@@ -51,4 +50,12 @@ public class Exchange extends BaseEntity {
     }
 
     public Exchange() {}
+
+    // 환전 상태 변경
+    public void changeStatus(String newStatus) {
+        if (!"normal".equals(status) && !"cancelled".equals(newStatus)) {
+            throw new IllegalArgumentException("잘못된 상태 값입니다.");
+        }
+        this.status = newStatus;
+    }
 }

@@ -67,11 +67,9 @@ public class ExchangeService {
         Exchange exchange = exchangeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 환전 요청입니다."));
 
-        if (!"normal".equals(status) && !"cancelled".equals(status)) {
-            throw new IllegalArgumentException("잘못된 상태 값입니다.");
-        }
+        // 상태 변경 로직을 Exchange 엔티티 내부로 캡슐화
+        exchange.changeStatus(status);
 
-        exchange.setStatus(status);
         exchangeRepository.save(exchange);
 
         return new ExchangeResDto(exchange);
