@@ -5,7 +5,50 @@
 ## API 명세서 📋
 ### Lv 0. API 명세 작성   `필수`
  - [X]  **API 명세서 작성하기**
-    - [X]  API명세서는 프로젝트 com.example.usercurrency 경로의 `test.http` 에 작성 
+    - [X]  API명세서는 프로젝트 com.example.usercurrency 경로의 `test.http` 에 작성
+
+<details>
+ <summary>  API 명세서 test.http </summary>
+
+#### 고객 생성
+<img width="333" alt="고객 생성 2024-11-29 오후 2 53 10" src="https://github.com/user-attachments/assets/f4086ac0-a700-4b94-b669-c3b2e22093f6">
+
+#### 고객 전체 조회
+<img width="333" alt="고객 전체 조회 2024-11-29 오후 2 53 25" src="https://github.com/user-attachments/assets/af9eb4c4-9f76-4881-ab7c-491015128d7e">
+
+#### 선택 고객 조회
+<img width="333" alt="선택 고객 조회 2024-11-29 오후 2 53 32" src="https://github.com/user-attachments/assets/8c449811-ce50-4024-81aa-547a9ee94d0c">
+
+#### 선택 고객 삭제
+<img width="333" alt="선택 고객 삭제 2024-11-29 오후 2 53 39" src="https://github.com/user-attachments/assets/64c5c80b-3d3e-4374-ab20-4aadcfa77350">
+
+#### 통화 생성
+<img width="333" alt="통화 생성 2024-11-29 오후 2 53 47" src="https://github.com/user-attachments/assets/d1ec9662-8e7b-459f-a342-1636d030a175">
+
+#### 통화 전체 조회
+<img width="333" alt="통화 전체 조회 2024-11-29 오후 2 53 56" src="https://github.com/user-attachments/assets/7940d692-e1a3-4da7-8ae3-6698487558f4">
+
+#### 선택 통화 조회
+<img width="333" alt="선택 통화 조회 2024-11-29 오후 2 54 03" src="https://github.com/user-attachments/assets/266312e0-b7ce-4875-9227-ce07fb906c96">
+
+#### 환전 요청 생성
+<img width="333" alt="환전 요청 생성 2024-11-29 오후 2 54 10" src="https://github.com/user-attachments/assets/c4e3be3d-be1f-4b83-9fdd-9b41c9d69204">
+
+#### 고객의 환전 요청 조회
+<img width="408" alt="고객의 환전 요청 조회 2024-11-29 오후 2 54 26" src="https://github.com/user-attachments/assets/c4ffa767-b9c1-406e-8748-64a05ca4c04a">
+
+#### 고객별 환전 요청 그룹화 조회
+<img width="410" alt="고객별 환전 요청 그룹화 데이터 조회 2024-11-29 오후 2 54 34" src="https://github.com/user-attachments/assets/d43368c5-1c69-43c0-a124-4a2bae36d3ac">
+
+#### 고객의 환전 요청 상태 변경
+<img width="520" alt="고객의 환전 요청 상태 변경 2024-11-29 오후 2 54 40" src="https://github.com/user-attachments/assets/014979fa-0f27-4e6c-8e2e-8fec8cd9fc7a">
+
+#### 고객의 환전 요청 삭제
+<img width="364" alt="고객의 환전 요청 삭제 2024-11-29 오후 2 54 48" src="https://github.com/user-attachments/assets/4bffa810-0615-4020-bedf-73a2b620afa9">
+
+
+ </details>
+
     
      [POSTMAN](https://documenter.getpostman.com/view/39375040/2sAYBXBrBX)
 
